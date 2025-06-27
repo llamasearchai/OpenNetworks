@@ -1,0 +1,33 @@
+# OpenNetworks Framework Requirements
+# Author: Nik Jois <nikjois@llamasearch.ai>
+
+# Core dependencies
+numpy>=1.21.0
+rich>=13.0.0
+click>=8.0.0
+
+# Optional AI framework dependencies
+torch>=1.12.0
+jax>=0.4.0
+
+# System monitoring (optional)
+psutil>=5.8.0
+netifaces>=0.11.0
+
+# MPI support (platform dependent)
+mpi4py>=3.1.0
+
+# Development dependencies
+pytest>=7.0.0
+black>=22.0.0
+flake8>=4.0.0
+
+# Additional utilities
+python-dateutil>=2.8.0
+
+# HuggingFace datasets for additional testing
+datasets>=2.14.0
+
+# Documentation
+sphinx>=4.0.0
+sphinx-rtd-theme>=1.0.0 

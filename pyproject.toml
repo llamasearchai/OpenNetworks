@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "opennetworks"
+version = "1.0.0"
+description = "Advanced AI Networking Framework for High-Performance Computing"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Nik Jois", email = "nikjois@llamasearch.ai"}
+]
+maintainers = [
+    {name = "Nik Jois", email = "nikjois@llamasearch.ai"}
+]
+keywords = [
+    "ai", "networking", "hpc", "distributed-computing", 
+    "infiniband", "rdma", "pytorch", "jax", "mpi"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: System :: Distributed Computing",
+    "Topic :: System :: Networking"
+]
+requires-python = ">=3.8"
+dependencies = [
+    "numpy>=1.21.0",
+    "rich>=13.0.0",
+    "click>=8.0.0"
+]
+
+[project.optional-dependencies]
+ai = ["torch>=1.12.0", "jax>=0.4.0"]
+monitoring = ["psutil>=5.8.0", "netifaces>=0.11.0"]
+mpi = ["mpi4py>=3.1.0"]
+dev = ["pytest>=7.0.0", "black>=22.0.0", "flake8>=4.0.0"]
+all = ["torch>=1.12.0", "jax>=0.4.0", "psutil>=5.8.0", "netifaces>=0.11.0", "mpi4py>=3.1.0"]
+
+[project.urls]
+Homepage = "https://github.com/nikjois/opennetworks"
+Repository = "https://github.com/nikjois/opennetworks.git"
+Documentation = "https://github.com/nikjois/opennetworks/docs"
+"Bug Tracker" = "https://github.com/nikjois/opennetworks/issues"
+
+[project.scripts]
+opennetworks = "neurallink:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["neurallink*", "transport_layer*", "collective_ops*", "telemetry*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "."]
+python_files = ["test_*.py", "*_test.py"]
+addopts = "-v --tb=short" 
